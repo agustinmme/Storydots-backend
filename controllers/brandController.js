@@ -43,7 +43,7 @@ const deleteById = async (req, res, next) => {
         id: id,
       },
     });
-    if (!response) throw new Error("Product not exist");
+    if (!response) throw new Error("Brand not exist");
     res.send({
       message: "Delete successfully",
     });

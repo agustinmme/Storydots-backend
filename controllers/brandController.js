@@ -1,6 +1,4 @@
 const Brand = require("../models/Brand");
-const { Op } = require("sequelize");
-
 
 const getAll = async (req, res , next) => {
   try {

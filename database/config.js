@@ -1,11 +1,11 @@
 module.exports = {
   database:{
-      host: "localhost",
-      user: "root",
-      password: "",
-      port: 3306,
-      database: "storydots",
-      dialect: "mysql"
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      port: process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      dialect: process.env.DB_DIALECT
   }
 }
 

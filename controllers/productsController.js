@@ -45,6 +45,11 @@ const getAll = async (req, res, next) => {
 const create = async (req, res, next) => {
   try {
     const { name, description, image_url, price, brandId } = req.body;
+
+    if(!brandId){
+      throw new Error("Your product need a brand");
+    }
+
     const response = await Product.create({
       name,
       description,

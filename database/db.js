@@ -1,5 +1,5 @@
-const {Sequelize} = require('sequelize')
-const {database} = require('./config')
+const {Sequelize} = require('sequelize');
+const {database} = require('../config/database');
 
 const sequelize = new Sequelize(
     database.database,
@@ -11,4 +11,4 @@ const sequelize = new Sequelize(
     }
 );
 
-module.exports = sequelize
+module.exports = sequelize;

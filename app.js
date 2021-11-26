@@ -15,12 +15,14 @@ app.use(express.json());
 const routes = require("./routes/index");
 app.use(routes);
 
+//Handler Not found
 app.use((req, res,next) => {
 const erro = new Error("Not Found");
 erro.status = 404;
 next(erro);
 });
 
+//Handler errors
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.send({

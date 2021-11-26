@@ -1,20 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/Product');
+const controller = require('../controllers/productsController')
 
+router.get("/", controller.getAll);
 
-router.get("/", (req, res) => {
-    Product.create({
-        name:"ZAPATILLAS MORADAS",
-        description:"zapas amarillas",
-        image_url:"una imagen de zapatillasd",
-        price:10.10,
-        brand_id:1
-    }).then(product =>{
-        res.json(product);
-    }).catch(e=>{res.json(e)})
-  });
+router.get("/:id", controller.searchById);
+
+router.post('/new', controller.create);
   
-
+router.delete('/:id', controller.deleteById);
+  
+router.put('/:id', controller.update);
 
 module.exports = router;

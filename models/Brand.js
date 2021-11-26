@@ -1,8 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../database/db");
 
-const Product = sequelize.define(
-  "products",
+
+const Brand = sequelize.define(
+  "brand",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,23 +13,9 @@ const Product = sequelize.define(
     name: {
       type: DataTypes.STRING(60),
       allowNull: false,
-      unique: true,
     },
-    name: {
-      type: DataTypes.STRING(60),
-      allowNull: false,
-      unique: true,
-    },
-    description: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
-    },
-    image_url: {
+    logo_url: {
       type: DataTypes.STRING(255),
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.DOUBLE(10, 2),
       allowNull: false,
     },
   },
@@ -37,6 +24,4 @@ const Product = sequelize.define(
   }
 );
 
-
-
-module.exports = Product;
+module.exports = Brand;

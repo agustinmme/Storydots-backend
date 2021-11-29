@@ -293,7 +293,7 @@ AUTH_ROUNDS=5
 - **Sample Call:**
 
 ```
-  curl --request POST 
+  curl --request DELETE 
     --url 'http://localhost:3000/products/[ID-PRODUCT]'
     --header 'Authorization: Bearer  [YOUR-TOKEN] '
 ```
@@ -590,7 +590,7 @@ o
 - **Sample Call:**
 
 ```
-  curl --request POST 
+  curl --request DELETE 
     --url 'http://localhost:3000/brands/[ID-BRAND]'
     --header 'Authorization: Bearer  [YOUR-TOKEN] '
 ```

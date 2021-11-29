@@ -8,14 +8,23 @@ const signIn = async (req, res, next) => {
   try {
     const { email, pass } = req.body;
 
-    const response = await User.findOne({ where: {email:email} });
+    const response = await User.findOne({ where: { email: email } });
+
+    if (Object.entries(req.body).length === 0)
+      res.status(400).json({
+        message:
+          "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [EMAIL],[PASSWORD]",
+      });
 
     if (!response) {
-      throw new Error("Email/User not exist");
+      res.status(404).json({
+        message: "EMAIL/USER NOT EXIST",
+      });
     }
-
     if (!bcrypt.compareSync(pass, response.password)) {
-      throw new Error("Credential Error");
+      res.status(400).json({
+        message: "CREDENTIAL ERRROR",
+      });
     }
 
     let token = jwt.sign({ user: response.email }, authConfig.secret, {
@@ -23,9 +32,8 @@ const signIn = async (req, res, next) => {
     });
 
     res.send({
-        user:response.email,
-        token
-    })
+      token
+    });
   } catch (e) {
     next(e);
   }
@@ -36,10 +44,18 @@ const singUp = async (req, res, next) => {
   try {
     const { email, pass } = req.body;
 
-    if(pass.length<5 || pass.length>60){
-        throw new Error("Password only allow values with length between 5 and 60");
+    if (Object.entries(req.body).length === 0)
+      res.status(400).json({
+        message:
+          "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [EMAIL],[PASSWORD]",
+      });
+
+    if (pass.length < 5 || pass.length > 60) {
+      res.status(400).json({
+        message: "PASSWORD ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 60",
+      });
     }
-    
+
     //Encriptado
     let password = bcrypt.hashSync(pass, Number.parseInt(authConfig.rounds));
 
@@ -49,7 +65,7 @@ const singUp = async (req, res, next) => {
       password,
     });
 
-    res.send({ message: "User Register Successfully" });
+    res.status(201).json({ message: "USER REGISTER SUCCESSFULLY" });
   } catch (e) {
     next(e);
   }

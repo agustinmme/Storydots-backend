@@ -21,7 +21,7 @@ const User = sequelize.define(
             User.findOne({where: {email: value}})
                 .then(function (user) {
                     if (user && self.id !== user.id) {
-                        return next('Email already in use!');
+                        return next('EMAIL ALREADY IN USE!');
                     }
                     return next();
                 })
@@ -31,7 +31,7 @@ const User = sequelize.define(
         },
         isEmail:{
           args: true,
-          msg:"Email only allow values type of mails"
+          msg:"EMAIL ONLY ALLOW VALUES TYPE OF MAILS"
         },
       }
     },

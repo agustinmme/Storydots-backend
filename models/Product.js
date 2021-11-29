@@ -16,11 +16,11 @@ const Product = sequelize.define(
       validate: {
         len: {
           args: [3, 60],
-          msg: "Name product only allow values with length between 3 and 60",
+          msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60",
         },
         isAlphanumeric: {
           args: true,
-          msg: "Name product only allow values with letter and number",
+          msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",
         },
       },
     },
@@ -30,11 +30,11 @@ const Product = sequelize.define(
       validate: {
         len: {
           args: [0, 150],
-          msg: "Product description only allows values with length less than 150",
+          msg: "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150",
         },
         isAlphanumeric: {
           args: true,
-          msg: "Name product only allow values with letter and number",
+          msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",
         },
       },
     },
@@ -44,11 +44,11 @@ const Product = sequelize.define(
       validate: {
         len: {
           args: [5, 255],
-          msg: "Product image only allow values with length between 5 and 255",
+          msg: "PRODUCT IMAGE ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255",
         },
         isUrl: {
           args: true,
-          msg:"Please entre solo url. format Example : (http://foo.com)"
+          msg:"PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)"
         },
       },
     },
@@ -58,12 +58,8 @@ const Product = sequelize.define(
       validate: {
         isNumeric: {
           args: true,
-          msg: "Please entre solo values numerics",
+          msg: "PLEASE ENTRE SOLO VALUES NUMERICS",
         },
-        len: {
-          args: [1, 10],
-          msg: "Price only allow values with length between 1 and 10",
-        }
       },
     },
   },

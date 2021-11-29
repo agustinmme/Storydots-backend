@@ -16,11 +16,11 @@ const Brand = sequelize.define(
       validate:{
         len:{
           args: [3,60],             
-          msg: "Name brand only allow values with length between 3 and 60"
+          msg: "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60"
         },
         isAlphanumeric:{
           args: true,
-          msg:"Name brand only allow values with letter and number"
+          msg:"NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER"
         },
       }
     },
@@ -30,11 +30,11 @@ const Brand = sequelize.define(
       validate:{
         len:{
           args: [5,255],             
-          msg: "Logo brand only allow values with length between 5 and 255"
+          msg: "LOGO BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255"
         },
         isUrl:{
           args: true,
-          msg:"Please entre solo url. format Example : (http://foo.com)"
+          msg:"PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)"
         },
       }
     },

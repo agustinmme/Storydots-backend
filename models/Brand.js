@@ -8,7 +8,7 @@ const Brand = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true, // Automatically gets converted to SERIAL for postgres
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING(60),
@@ -18,6 +18,7 @@ const Brand = sequelize.define(
           args: [3,60],             
           msg: "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60"
         },
+        //Para poder agregar espacio se tendria que eliminar o cambiar esta validacion por alguna con Regex.(is: o not:)
         isAlphanumeric:{
           args: true,
           msg:"NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER"

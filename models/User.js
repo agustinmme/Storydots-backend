@@ -8,7 +8,7 @@ const User = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true, // Automatically gets converted to SERIAL for postgres
+      autoIncrement: true,
     },
     email: {
       type: DataTypes.STRING,

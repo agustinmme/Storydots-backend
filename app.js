@@ -32,9 +32,12 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, async () => {
   try {
-    await sequelize.sync({ force: false }).authenticate();
+    // Se puede cambiar el force por un true y cada vez que inicies las app se reformatean(resetan a 0 datos) las bases de datos.
+    const response = await sequelize.sync({ force: false }).authenticate();
     console.log(`Example app listening at http://localhost:${PORT}`);
     console.log("Connection has been established successfully.");
+    console.log("RESPUESTAS");
+    console.log(response);
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }

@@ -7,17 +7,32 @@ const Product = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true, // Automatically gets converted to SERIAL for postgres
+      autoIncrement: true, 
     },
     name: {
       type: DataTypes.STRING(60),
       allowNull: false,
+      //Para eliminar nombre de productos unicos se tiene que borar unique y la custom validation.
       unique: true,
       validate: {
+        isUnique: function (value, next) {
+          var self = this;
+          Product.findOne({where: {name: value}})
+              .then(function (product) {
+                  if (product && self.id !== product.id) {
+                      return next('NAME PRODUCT ALREADY IN USE!');
+                  }
+                  return next();
+              })
+              .catch(function (err) {
+                  return next(err);
+              });
+      },
         len: {
           args: [3, 60],
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60",
         },
+        //Para poder agregar espacio se tendria que eliminar o cambiar esta validacion por alguna con Regex.(is: o not:)
         isAlphanumeric: {
           args: true,
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",
@@ -32,6 +47,7 @@ const Product = sequelize.define(
           args: [0, 150],
           msg: "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150",
         },
+        //Para poder agregar espacio se tendria que eliminar o cambiar esta validacion por alguna con Regex.(is: o not:)
         isAlphanumeric: {
           args: true,
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",

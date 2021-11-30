@@ -787,7 +787,7 @@ El repositorio cuenta con un folder(**Postman - Queries**) que con tiene un arch
 
 ## Deploy 
 
-Este se desplego en AWS en una instancia gratuita de ubuntu, para obtener acceso al ip publica envíe un correo electrónico a agustinmansilla240@gmail.com.
+Esta api se desplego en AWS en una instancia gratuita de ubuntu, para obtener acceso al ip publica envíe un correo electrónico a agustinmansilla240@gmail.com.
 
 ## ¿Necesitas ayuda? 
 

@@ -20,6 +20,7 @@
 		 - [Register](#registar)
 		 - [Login](#logear)
 - [Ejemplos - Code snippets](#example-code-snippets)
+- [Deploy](#deploy)
 - [¿Necesitas ayuda?](#necesitas-ayuda)
 
 ---
@@ -784,6 +785,9 @@ o
 
 El repositorio cuenta con un folder(**Postman - Queries**) que con tiene un archivo JSON para importar los endpoints con ejemplos en [Postman](https://www.postman.com/downloads/?utm_source=postman-home)
 
+## Deploy 
+
+Este se desplego en AWS en una instancia gratuita de ubuntu, para obtener acceso al ip publica envíe un correo electrónico a agustinmansilla240@gmail.com.
 
 ## ¿Necesitas ayuda? 
 

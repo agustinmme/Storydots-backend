@@ -15,7 +15,7 @@ const User = sequelize.define(
       allowNull: false,
       unique: true,
       validate:{
-        //Validacion custom para generar un mensaje por emial/usuarios repetidos.
+        
         isUnique: function (value, next) {
             var self = this;
             User.findOne({where: {email: value}})
@@ -41,7 +41,7 @@ const User = sequelize.define(
     },
   },
   {
-    timestamps: false, //previene que se cree createdAt y updatedAt automaticamente
+    timestamps: false, 
   }
 );
 

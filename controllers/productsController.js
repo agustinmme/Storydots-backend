@@ -1,7 +1,7 @@
 const Product = require("../models/Product");
 const Brand = require("../models/Brand");
 
-// Busca un producto por el id al producto y retorna el mismo o un mensaje de error.
+
 const searchById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -23,8 +23,7 @@ const searchById = async (req, res, next) => {
     next(e);
   }
 };
-// Retorna los productos por pagina y el numeros de paginas totales.
-// Necesita pasarle el parametro page para que la api identifique en que pagina esta posicionada.
+
 const getAll = async (req, res, next) => {
   try {
     const pageAsNumber = Number.parseInt(req.query.page);
@@ -55,8 +54,7 @@ const getAll = async (req, res, next) => {
 };
 
 
-//Crea un nuevo producto y devuelve un mensaje de exito/error.
-//Necesitaras esta authentificado.
+
 const create = async (req, res, next) => {
   try {
     const { name, description, image_url, price, brandId } = req.body;
@@ -82,8 +80,7 @@ const create = async (req, res, next) => {
     next(e);
   }
 };
-//Busca el producto a eliminar,lo elimina y devuelve un mensaje de exito/error
-//Necesitaras esta authentificado
+
 const deleteById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -103,9 +100,7 @@ const deleteById = async (req, res, next) => {
     next(e);
   }
 };
-//Busca el producto a actualizar,actualiza almenos 1 dato y devuelve un mensaje de exito/error.
-//Podria ser un patch como esta ahora o requerir cambiar si o si tados la informacion los campos.
-//Necesitaras esta authentificado
+
 const update = async (req, res, next) => {
   try {
     const { id } = req.params;

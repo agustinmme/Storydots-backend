@@ -1,18 +1,16 @@
 const Brand = require("../models/Brand");
 
-// Devuelve todos las marcas sin paginar.
 const getAll = async (req, res, next) => {
   try {
     const response = await Brand.findAll();
     if (!response) res.status(404).json({ message: "BRANDS NOT EXIST" });
-    //Por defecto envia HTTP 200 OK
     res.json({ content: response });
   } catch (e) {
     next(e);
   }
 };
 
-//Crea o agrega una nueva marca.
+
 const create = async (req, res, next) => {
   try {
     const { name, logo_url } = req.body;
@@ -33,8 +31,6 @@ const create = async (req, res, next) => {
   }
 };
 
-//Buscar por ID una marca y la retorna.
-//Necesitaras esta authentificado.
 const searchById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -48,8 +44,7 @@ const searchById = async (req, res, next) => {
   }
 };
 
-//Busca una marca por id, si la encuentra la elimina y envia un mensaje de exito o error.
-//Necesitaras esta authentificado.
+
 const deleteById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -69,9 +64,7 @@ const deleteById = async (req, res, next) => {
   }
 };
 
-// Busca la marca a actualizar,actualiza almenos 1 dato y devuelve un mensaje de exito/error..
-//Podria ser un patch como esta ahora o requerir cambiar si o si tados la informacion los campos.
-//Necesitaras esta authentificado.
+
 const update = async (req, res, next) => {
   try {
     const { id } = req.params;

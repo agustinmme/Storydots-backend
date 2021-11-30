@@ -3,8 +3,7 @@ const authConfig = require("../config/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-//Logearse
-//Retorna token necesario para poder utilzar rutas/endpoint protegidas.
+
 const signIn = async (req, res, next) => {
   try {
     const { email, pass } = req.body;
@@ -40,8 +39,7 @@ const signIn = async (req, res, next) => {
   }
 };
 
-//Registarse
-//Recibe datos de una req,encripta la password,crea/almacena el usuario y retorna un mensaje de exito o error.
+
 const singUp = async (req, res, next) => {
   try {
     const { email, pass } = req.body;
@@ -58,10 +56,10 @@ const singUp = async (req, res, next) => {
       });
     }
 
-    //Encriptado
+
     let password = bcrypt.hashSync(pass, Number.parseInt(authConfig.rounds));
 
-    //Nuevo usuario
+
     const response = await User.create({
       email,
       password,

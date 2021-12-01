@@ -24,6 +24,10 @@ app.use((req, res, next) => {
 
 //Handler errors
 app.use((err, req, res, next) => {
+  if (err.errors) {
+    res.status(400).json({ message: err.errors[0].message });
+    return;
+  }
   res.status(err.status || 500).send({
     status: err.status || 500,
     message: err.message,
@@ -36,8 +40,6 @@ app.listen(PORT, async () => {
     const response = await sequelize.sync({ force: false }).authenticate();
     console.log(`Example app listening at http://localhost:${PORT}`);
     console.log("Connection has been established successfully.");
-    console.log("RESPUESTAS");
-    console.log(response);
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }

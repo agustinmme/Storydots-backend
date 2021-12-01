@@ -114,10 +114,8 @@ AUTH_ROUNDS=5
 - **Error Response:**
 
   - **Code:** 404 NOT FOUND <br />
-    **Content:** <br/> `{ "message": "PRODUCT NOT EXIST" }`
+    **Content:** <br/> `{ "message": "PRODUCTS NOT EXIST" }`
 
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> `{ "message": "INTERNAL SERVER ERROR" }`
 
 
 - **Sample Call:**
@@ -217,8 +215,11 @@ AUTH_ROUNDS=5
 - **Error Responses**
 
 	- **Code:** 400 BAD REQUEST <br/>
-	**Content:**  <br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[IMAGE_URL],[DESCRIPTION],[PRICE],[BRAND-ID]" }`
-
+	**Content:**  <br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[IMAGE_URL],[DESCRIPTION],[PRICE],[BRAND-ID]" }`<br/> 
+    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
+    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
+    `{ "message": "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150" }`<br/> 
+    `{ "message": "PRODUCT IMAGE ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
 	- **Code:** 401 UNAUTHORIZED <br/>
 	**Content:** <br/>
     `{ "mesagge": "UNAUTHORIZED ACCESS " }`<br/>
@@ -226,12 +227,6 @@ AUTH_ROUNDS=5
     `{ "message": "JWT MALFORMED " }`<br/>
     `{ "message": "JWT EXPIRED " }`<br/>
 
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
-    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
-    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
-    `{ "message": "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150" }`<br/> 
-    `{ "message": "PRODUCT IMAGE ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
 
 
 - **Sample Call:**
@@ -339,7 +334,11 @@ Estos son los parámetros que esperará el end-point:
 
   - **Code:** 400 BAD REQUEST <br/>
     **Content:** <br/>`{ "message": "ID NOT VALID ONLY NUMBER" }`<br/>
-    `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[IMAGE_URL],[DESCRIPTION],[PRICE],[BRAND-ID]", }`
+    `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[IMAGE_URL],[DESCRIPTION],[PRICE],[BRAND-ID]", }`<br/>
+    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
+    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
+    `{ "message": "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150" }`<br/> 
+    `{ "message": "PRODUCT IMAGE ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
 
   - **Code:** 401 UNAUTHORIZED <br/>
     **Content:** <br/>
@@ -351,13 +350,6 @@ Estos son los parámetros que esperará el end-point:
 
   - **Code:** 404 NOT FOUND <br/>
     **Content:** <br/> `{ "message": "PRODUCT NOT EXIST" }`
-
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
-    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
-    `{ "message": "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
-    `{ "message": "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150" }`<br/> 
-    `{ "message": "PRODUCT IMAGE ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
 
 
 - **Sample Call:**
@@ -423,10 +415,6 @@ o
   - **Code:** 404 NOT FOUND <br />
     **Content:** <br/> `{ "message": "BRAND NOT EXIST" }`
     
-   - **Code:** 500 INTERNAL SERVER ERROR <br />
-     **Content:** <br/> `{ "message": "INTERNAL SERVER ERROR" }`
-
-
 - **Sample Call:**
 
 	``` 
@@ -516,7 +504,11 @@ o
 - **Error Responses**
 
 	- **Code:** 400 Bad Request <br/>
-	**Content:**  <br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]" }`
+	**Content:**  <br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]" }`<br/>
+    `{ "message": "LOGO BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
+    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
+    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
+    `{ "message": "PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)" }`<br/> 
 
 	- **Code:** 401 UNAUTHORIZED <br/>
 	**Content:** <br/>
@@ -525,12 +517,6 @@ o
     `{ "message": "JWT MALFORMED " }`<br/>
     `{ "message": "JWT EXPIRED " }`<br/>
     
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
-    `{ "message": "LOGO BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
-    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
-    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
-    `{ "message": "PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)" }`<br/> 
     
 
 - **Sample Call:**
@@ -635,7 +621,11 @@ Estos son los parámetros que esperará el end-point:
 
   - **Code:** 400 Bad Request <br/>
     **Content:** <br/>`{ "message": "ID NOT VALID ONLY NUMBER" }` </br>
-    `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]" }`
+    `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]" }`<br/>
+    `{ "message": "LOGO BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
+    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
+    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
+    `{ "message": "PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)" }`<br/> 
 
   - **Code:** 401 UNAUTHORIZED <br/>
     **Content:** <br/>
@@ -644,12 +634,6 @@ Estos son los parámetros que esperará el end-point:
     `{ "message": "JWT MALFORMED " }`<br/>
     `{ "message": "JWT EXPIRED " }`<br/>
 
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
-    `{ "message": "LOGO BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 255" }`<br/> 
-    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER" }`<br/> 
-    `{ "message": "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60" }`<br/> 
-    `{ "message": "PLEASE ENTRE SOLO URL. FORMAT EXAMPLE : (HTTP://FOO.COM)" }`<br/> 
     
   - **Code:** 404 NOT FOUND <br/>
     **Content:** <br/> `{ "message": "BRAND NOT EXIST" }` 
@@ -714,14 +698,12 @@ o
 - **Error Response:**
 
   - **Code:** 400 BAD REQUEST <br />
-    **Content:** <br/> `{ "message": "PASSWORD ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 60" }`
-		<br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [EMAIL],[PASSWORD]" }`
-		
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
+    **Content:** <br/> `{ "message": "PASSWORD ONLY ALLOW VALUES WITH LENGTH BETWEEN 5 AND 60" }`<br/>
+   `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [EMAIL],[PASSWORD]" }`<br/>
     `{ "message": "EMAIL ALREADY IN USE!" }`<br/> 
     `{ "message": "EMAIL ONLY ALLOW VALUES TYPE OF MAILS" }`<br/> 
 
+		
 
 - **Sample Call:**
 
@@ -760,15 +742,13 @@ o
 
   - **Code:** 400 BAD REQUEST <br />
     **Content:** <br/> `{ "message": "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [EMAIL],[PASSWORD]" }`<br/>
-    		       `{ "message": "CREDENTIAL ERRROR" }`
+    `{ "message": "CREDENTIAL ERRROR" }`<br/>
+    `{ "message": "EMAIL ALREADY IN USE!" }`<br/> 
+    `{ "message": "EMAIL ONLY ALLOW VALUES TYPE OF MAILS" }`<br/> 
 
   - **Code:** 404 NOT FOUND <br />
     **Content:** <br/> `{ "message": "EMAIL/USER NOT EXIST" }`
 
-  - **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** <br/> 
-    `{ "message": "EMAIL ALREADY IN USE!" }`<br/> 
-    `{ "message": "EMAIL ONLY ALLOW VALUES TYPE OF MAILS" }`<br/> 
 
 
 - **Sample Call:**

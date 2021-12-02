@@ -3,11 +3,13 @@ const app = express();
 require("dotenv").config();
 require("./models/associations");
 const sequelize = require("./database/db");
+let cors = require("cors");
 
 //Setting
 const PORT = process.env.PORT || 3000;
 
 //Middlewares
+app.use(cors());
 app.use(express.urlencoded());
 app.use(express.json());
 

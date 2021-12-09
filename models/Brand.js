@@ -19,8 +19,8 @@ const Brand = sequelize.define(
           msg: "NAME BRAND ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60"
         },
         
-        isAlphanumeric:{
-          args: true,
+        is:{
+          args: /^[a-zA-Z0-9 ]*$/,
           msg:"NAME BRAND ONLY ALLOW VALUES WITH LETTER AND NUMBER"
         },
       }

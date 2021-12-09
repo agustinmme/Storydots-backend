@@ -33,8 +33,8 @@ const Product = sequelize.define(
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LENGTH BETWEEN 3 AND 60",
         },
       
-        isAlphanumeric: {
-          args: true,
+        is: {
+          args: /^[a-zA-Z0-9 ]*$/,
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",
         },
       },
@@ -48,8 +48,8 @@ const Product = sequelize.define(
           msg: "PRODUCT DESCRIPTION ONLY ALLOWS VALUES WITH LENGTH LESS THAN 150",
         },
        
-        isAlphanumeric: {
-          args: true,
+        is: {
+          args: /^[a-zA-Z0-9 ]*$/,
           msg: "NAME PRODUCT ONLY ALLOW VALUES WITH LETTER AND NUMBER",
         },
       },

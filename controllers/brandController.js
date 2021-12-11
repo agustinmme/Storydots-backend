@@ -2,25 +2,34 @@ const Brand = require("../models/Brand");
 
 const getAll = async (req, res, next) => {
   try {
-    const response = await Brand.findAll();
+    const pageAsNumber = Number.parseInt(req.query.page);
+    let page = 0;
+    if (!Number.isNaN(pageAsNumber) && pageAsNumber > 0) {
+      page = pageAsNumber;
+    }
+    const size = 5;
+    const response = await Brand.findAndCountAll({
+      limit: size,
+      offset: size * page,
+    });
     if (!response) res.status(404).json({ message: "BRANDS NOT EXIST" });
-    res.json({ content: response });
+    res.send({
+      content: response.rows,
+      totalPages: Math.ceil(response.count / size),
+    });
   } catch (e) {
     next(e);
   }
 };
 
-
 const create = async (req, res, next) => {
   try {
     const { name, logo_url } = req.body;
     if (!name || !logo_url)
-      res
-        .status(400)
-        .json({
-          message:
-            "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]",
-        });
+      res.status(400).json({
+        message:
+          "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]",
+      });
     const response = await Brand.create({
       name,
       logo_url,
@@ -44,7 +53,6 @@ const searchById = async (req, res, next) => {
   }
 };
 
-
 const deleteById = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -64,7 +72,6 @@ const deleteById = async (req, res, next) => {
   }
 };
 
-
 const update = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -82,12 +89,10 @@ const update = async (req, res, next) => {
     };
 
     if (Object.entries(req.body).length === 0)
-      res
-        .status(400)
-        .json({
-          message:
-            "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]",
-        });
+      res.status(400).json({
+        message:
+          "BAD REQUEST, AT LEAST ONE OF THE FOLLOWING PARAMS IS MISSING: [NAME],[LOGO_URL]",
+      });
 
     response = await Brand.update(update, {
       where: {

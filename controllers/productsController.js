@@ -14,7 +14,7 @@ const searchById = async (req, res, next) => {
       },
       include: {
         model: Brand,
-        attributes: ["name", "logo_url"],
+        attributes: ["id","name", "logo_url"],
       },
     });
     if (!response) res.status(404).json({ message: "PRODUCT NOT EXIST" });

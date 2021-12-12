@@ -5,8 +5,12 @@ const auth = require('../middlewares/auth');
 
 //Rutas publicas
 
-router.get("/", controller.getAll);
+
  
+router.get("/", controller.getAllWithPage);
+
+router.get("/no-pages", controller.getAll);
+
 router.get("/:id", controller.searchById);
 
 //Rutas Privadas

@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth');
 
 //Rutas Publicas
 
-router.get("/", controller.getAll);
+router.get("/", controller.getAllWithPage);
 
 router.get("/:id", controller.searchById);
 

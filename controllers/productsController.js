@@ -24,7 +24,7 @@ const searchById = async (req, res, next) => {
   }
 };
 
-const getAll = async (req, res, next) => {
+const getAllWithPage = async (req, res, next) => {
   try {
     const pageAsNumber = Number.parseInt(req.query.page);
     let page = 0;
@@ -140,7 +140,7 @@ const update = async (req, res, next) => {
 };
 
 module.exports = {
-  getAll,
+  getAllWithPage,
   searchById,
   create,
   deleteById,

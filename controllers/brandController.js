@@ -1,6 +1,6 @@
 const Brand = require("../models/Brand");
 
-const getAll = async (req, res, next) => {
+const getAllWithPage = async (req, res, next) => {
   try {
     const pageAsNumber = Number.parseInt(req.query.page);
     let page = 0;
@@ -17,6 +17,16 @@ const getAll = async (req, res, next) => {
       content: response.rows,
       totalPages: Math.ceil(response.count / size),
     });
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getAll = async (req, res, next) => {
+  try {
+    const response = await Brand.findAll();
+    if (!response) res.status(404).json({ message: "BRANDS NOT EXIST" });
+    res.json({ content: response });
   } catch (e) {
     next(e);
   }
@@ -108,6 +118,7 @@ const update = async (req, res, next) => {
 
 module.exports = {
   getAll,
+  getAllWithPage,
   create,
   searchById,
   update,

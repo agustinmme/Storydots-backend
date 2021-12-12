@@ -379,11 +379,11 @@ o
 
 ## Endpoints Brands 
 
-### **Recuperar todos las marcas** 
+### **Recuperar marcas sin paginar** 
 
 - **URL**
 
-  _/products_
+  _/brands/no-pages_
 
 - **Method:**
 
@@ -419,9 +419,59 @@ o
 
 	``` 
 	curl -X GET  
-	/http://localhost:3000/brands/
+	http://localhost:3000/brands/no-pages
 	```
 <br/>
+
+### **Recuperar marcas paginadas** 
+
+- **URL**
+
+  _/brands_
+
+- **Method:**
+
+  `GET` - recupera todas las marcas almacenadas paginadas
+  
+- **Path Params**
+
+  **[PAGE]:** _El numero de la pagina que quieres recuperar_
+
+- **Request Headers**
+
+  _No requiere para este endpoint_
+
+- **Success Response:**
+
+  Este método retorna todas las marcas registrados en la api.Cada vez que se llame a este metodo se enviara un array de marcas.
+
+  - **Code:** 200 OK<br />
+    **Content:** 
+	```
+	"content": [
+        {
+            "id": 8,
+            "name": "LACHI",
+            "logo_url": "https://d2r9epyceweg5n.cloudfront.net/stores/771/622/themes/common/logo-1207256253-1623855938-0d59f8c3d0091af0db5ee8e3ba04750f1623855938.png?0"
+        },
+    	],
+    	"totalPages": 1
+	```
+
+- **Error Response:**
+
+  - **Code:** 404 NOT FOUND <br />
+    **Content:** <br/> `{ "message": "BRAND NOT EXIST" }`
+    
+- **Sample Call:**
+
+	``` 
+	curl -X GET  
+	http://localhost:3000/brands/?page=0
+	```
+<br/>
+
+
 
 ### **Recuperar una marca** 
 

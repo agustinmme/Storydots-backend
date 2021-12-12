@@ -8,9 +8,7 @@ module.exports = (req, res, next) => {
   jwt.verify(token, authConfig.secret, (error, decoded) => {
 
     if (error) res.status(401).json({message:error.message.toUpperCase()});
-    //En decoded obtengo el usuario.
-    //Se podria guardar para generar roles.
-    req.user = decoded;
-    next();
+    else next();
+    
   });
 };

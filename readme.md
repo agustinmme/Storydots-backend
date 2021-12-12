@@ -427,7 +427,7 @@ o
 
 - **URL**
 
-  _/brands_
+  _/brands/?page=[PAGE]_
 
 - **Method:**
 
